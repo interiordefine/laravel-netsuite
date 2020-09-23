@@ -17,7 +17,7 @@ class NetSuiteServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->logger = \Log::getMonolog();
+        $this->logger = \Log::getLogger();
         $this->app->singleton('Usulix\NetSuite\NetSuiteService', function ($app) {
             return new NetSuiteService($this->logger, (new ConfigServiceService($this->logger))->getConfig());
         });
